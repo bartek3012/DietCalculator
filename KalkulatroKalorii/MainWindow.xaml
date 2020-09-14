@@ -1,0 +1,253 @@
+﻿<Window x:Class="KalkulatroKalorii.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KalkulatroKalorii"
+        mc:Ignorable="d"
+    Title="Kalkulatro kcal" Height="620" Width="310" KeyDown="Window_KeyEnter" Icon="/nutrition.png">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFE0FFFC"/>
+            <GradientStop Color="#FFE3ECFF" Offset="0.997"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <StackPanel>
+        <!--Waga-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Waga" Grid.Column ="0" Margin="30 10 0 0"/>
+            <TextBox x:Name="textBoxWaga" Text=""  Grid.Column ="1" Margin="10 10 0 0"/>
+            <TextBlock x:Name="textBlockKg" Text="[kg]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="5 12 0 0"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" x:Name="textBlockWagaError" Text="" Foreground="#FFE40000" FontSize="9"/>
+        </Grid>
+        <Separator/>
+        <!--Wzrost-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Wzrost" Grid.Column ="0" Margin="30 10 0 0"/>
+            <TextBox x:Name="textBoxWzrost" Text=""  Grid.Column ="1" Margin="10 10 0 0"/>
+            <TextBlock Text="[cm]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="5 12 0 0"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" x:Name="textBlockWzrostError" Text="" Foreground="#FFE40000" FontSize="9"/>
+        </Grid>
+        <Separator/>
+        <!--Wiek-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Wiek" Grid.Column ="0" Margin="30 10 0 0"/>
+            <TextBox x:Name="textBoxWiek" Text=""  Grid.Column ="1" Margin="10 10 0 0"/>
+            <TextBlock Text="[lat (18 - 130)]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="5 12 0 0"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" x:Name="textBlockWiekError" Text="" Foreground="#FFE40000" FontSize="9"/>
+        </Grid>
+        <Separator/>
+        <!--Płeć-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="ImageKobieta" Height="40" Width="40" HorizontalAlignment="Center" Margin="0 3 0 0" Source="/female.png" Grid.Column="0"/>
+            <Image x:Name="ImagePaulina" Width="78" HorizontalAlignment="Center" Source="/paulina.png" Margin="0,-6,0,-27" Visibility="Hidden"/>
+            <Image Height="40" Width="40" HorizontalAlignment="Center" Margin="0 3 0 0" Source="/male.png" Grid.Column="1"/>
+            <Image x:Name="harryImage"  HorizontalAlignment="Center" Margin="0,-6,0,-30" Width="85" Source="/harry.png" Grid.Column="1" Visibility="Hidden"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <RadioButton x:Name="RadioButtonFemale" Margin="2 5 0 4" Grid.Column="0" IsChecked="True" HorizontalAlignment="Center"/>
+            <RadioButton x:Name="RadioButtonMale" Margin="2 5 0 4" Grid.Column="1"  HorizontalAlignment="Center"/>
+        </Grid>
+        <Separator/>
+        <!--PAL-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="PAL" Grid.Column ="0" Margin="30 10 0 0" ToolTip="(1,2 – 1,3) dla pacjenta 
+chorego leżącego w łóżku | (1,4) dla niskiej aktywności fizycznej | (1,6) dla umiarkowanej
+aktywności fizycznej | (1,75) aktywny tryb życia | (2) bardzo aktywny tryb życia
+| (2,2-2,4) wyczynowe uprawianie sportu"/>
+            <TextBox x:Name="textBoxPal" Text=""  Grid.Column ="1" Margin="10 10 0 0"/>
+            <TextBlock Text="(1 - 3)" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="5 12 0 0"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlockPalError" Grid.Column="1" Text="" Foreground="#FFE40000" FontSize="9"/>
+        </Grid>
+        <Separator/>
+        <!--Bialko-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Białko" Grid.Column ="0" Margin="5 10 0 0"/>
+            <TextBox x:Name="textBoxBialko" Text=""  Grid.Column ="1" Margin="5 10 0 0"/>
+            <TextBlock Text="[%]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="3 12 0 0"/>
+            <TextBox x:Name="textBoxBGramy" Text=""  Grid.Column ="3" Margin="5 10 0 0" IsEnabled="False" Background="#FFE5E5E5"/>
+            <TextBlock Text="[g]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="4" Margin="3 12 0 0" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlockBialkoError" Grid.Column="1" Text="" Foreground="#FFE40000" FontSize="9"/>
+        </Grid>
+        <!--Tłuszcze-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Tłuszcze" Grid.Column ="0" Margin="5 10 0 0"/>
+            <TextBox x:Name="textBoxTluszcz" Text=""  Grid.Column ="1" Margin="5 10 0 0"/>
+            <TextBlock Text="[%]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="3 12 0 0"/>
+            <TextBox x:Name="textBoxTGramy" Text=""  Grid.Column ="3" Margin="5 10 0 0" IsEnabled="False" Background="#FFE5E5E5"/>
+            <TextBlock Text="[g]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="4" Margin="3 12 0 0" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlockTluszczError" Grid.Column="1" Text="" Foreground="#FFE40000" FontSize="9"/>
+        </Grid>
+
+        <!--Węglowodany-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Węglowodany" Grid.Column ="0" Margin="5 10 0 0"/>
+            <TextBox x:Name="textBoxWegl" Text=""  Grid.Column ="1" Margin="5 10 0 0"/>
+            <TextBlock Text="[%]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="3 12 0 0"/>
+            <TextBox x:Name="textBoxWGramy" Text=""  Grid.Column ="3" Margin="5 10 0 0" IsEnabled="False" Background="#FFE5E5E5"/>
+            <TextBlock Text="[g]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="4" Margin="3 12 0 0" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlockWeglError" Grid.Column="1" Text="" Foreground="#FFE40000" FontSize="9"/>
+        </Grid>
+        <Separator/>
+        <!--Podstawowa przemiada materii-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="PPM" Grid.Column ="0" Margin="30 10 0 0" ToolTip="Podstawowa przemiana materii"/>
+            <TextBox x:Name="textBoxPPM" Text=""  Grid.Column ="1" Margin="10 10 0 10" Background="#FFE5E5E5" IsEnabled="False"/>
+            <TextBlock Text="[kcal]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="5 12 0 0"/>
+        </Grid>
+        <Separator/>
+        <!--CMP-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="CMP" Grid.Column ="0" Margin="30 10 0 0" ToolTip="Całkowita przemiana materii"/>
+            <TextBox x:Name="textBoxCMP" Text=""  Grid.Column ="1" Margin="10 10 0 10" Background="#FFE5E5E5" IsEnabled="False"/>
+            <TextBlock Text="[kcal]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="5 12 0 0"/>
+        </Grid>
+        <Separator/>
+        <!--BMI-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="BMI" Grid.Column ="0" Margin="30 10 0 0" ToolTip="Body mass index"/>
+            <TextBox x:Name="textBoxBMI" Text=""  Grid.Column ="1" Margin="10 10 0 0" Background="#FFE5E5E5" IsEnabled="False"/>
+            <TextBlock Text="[kg/m²]" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="2" Margin="5 12 0 0"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="textBoxBMIGrupa" TextAlignment="Center" Text=""  Grid.Column ="0" Margin="10 5 0 10" Background="#FFE5E5E5" IsEnabled="False"/>
+            <TextBlock x:Name="textBlockBMIZakres"  Text="" FontSize="10" Foreground="#FF9C9C9C" Grid.Column ="1" Margin="5 12 0 0"/>
+        </Grid>
+        <Separator/>
+        <!--Przyciski-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="159*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="90*"/>
+            </Grid.ColumnDefinitions>
+            <Button Height="25" Content="Oblicz" Click="Button_Oblicz_Click" Grid.Column="0" Margin="10,10,10,10" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="14">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF55B03D" Offset="0"/>
+                        <GradientStop Color="#FF2D741A" Offset="0.764"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Wyczyść" Height="25" FontSize="14" Grid.Column="2" Margin="10,10,10,10" Click="Button_Wyczysc_Click" Grid.ColumnSpan="2" FontWeight="Bold">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE09E9E"/>
+                        <GradientStop Color="#FFE22727" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </StackPanel>
+</Window>
