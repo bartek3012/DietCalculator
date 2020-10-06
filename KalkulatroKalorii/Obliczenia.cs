@@ -33,6 +33,7 @@ namespace KalkulatroKalorii
         public static double ObliczBMI(TextBox nazwa, TextBlock zakres, double waga, double wzrost)
         {
             double bmi = (10000*waga/(wzrost*wzrost));
+            bmi = Math.Round(bmi, 2);
             nazwa.Foreground = Brushes.Black;
             if (bmi<16)
             {
@@ -85,7 +86,7 @@ namespace KalkulatroKalorii
                 nazwa.Foreground = Brushes.White;
                 zakres.Text = "≥ 40,0";
             }
-            return Math.Round(bmi, 2);
+            return bmi;
         }
     }
 }
